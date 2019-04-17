@@ -60,13 +60,25 @@ namespace Test
         [Fact]
         public void Test_GET_Create_ContainsForm_WithSelectElement_ContainingRatings()
         {
+            string[] expectedRatings = ["1", "2", "3", "4", "5"];
 
+            ContentResult result = (ContentResult)controller.Create();
+
+            HtmlNode select = HtmlNode.CreateNode(result.Content).ChildNodes.FirstOrDefault(node => node.Name == "select");
+            Assert.NotNull(select);
+            Assert.Equal("rating", select.Attributes.SingleOrDefault(attr => attr.Name == "name").Value);
+            var actualRatings = select.ChildNodes.Where(node => node.Name == "option").Select(opt => opt.InnerText).ToArray();
+            Assert.Equal(expectedRatings, actualRatings);
         }
 
         [Fact]
         public void Test_GET_Create_ContainsForm_WithSubmitButton()
         {
+            ContentResult result = (ContentResult)controller.Create();
 
+            HtmlNode submitBtn = HtmlNode.CreateNode(result.Content).ChildNodes.FirstOrDefault(node => node.Name == "button");
+            Assert.NotNull(submitBtn);
+            Assert.Equal("submit", submitBtn.Attributes.SingleOrDefault(attr => attr.Name == "type").Value.ToLower());
         }
 
         [Theory]
