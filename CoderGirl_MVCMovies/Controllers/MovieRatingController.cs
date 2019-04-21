@@ -38,6 +38,7 @@ namespace CoderGirl_MVCMovies.Controllers
             return RedirectToAction(actionName: nameof(Details), routeValues: new { movieName, rating });
         }
 
+        //Create a Details view which displays the same string 
         [HttpGet]
         public IActionResult Details(string movieName, string rating)
         {
