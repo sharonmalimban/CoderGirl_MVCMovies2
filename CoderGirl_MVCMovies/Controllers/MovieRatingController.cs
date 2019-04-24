@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoderGirl_MVCMovies.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoderGirl_MVCMovies.Controllers
 {
     public class MovieRatingController : Controller
     {
+        private IMovieRatingRepository repository = RepositoryFactory.GetMovieRatingRepository();
+
         private string htmlForm = @"
             <form method='post'>
                 <input name='movieName' />
@@ -37,13 +40,15 @@ namespace CoderGirl_MVCMovies.Controllers
             return Content(htmlForm, "text/html");
         }
 
-        // TODO: Save the movie/rating in the MovieRatingRepository
+        // TODO: Save the movie/rating in the MovieRatingRepository before redirecting to the Details page
+        // TODO: Redirect passing only the id of the created movie/rating
         [HttpPost]
         public IActionResult Create(string movieName, string rating)
         {
             return RedirectToAction(actionName: nameof(Details), routeValues: new { movieName, rating });
         }
 
+        // TODO: The Details method should take an int parameter which is the id of the movie/rating to display.
         // TODO: Create a Details view which displays the formatted string with movie name and rating in an h2 tag. 
         // TODO: The Details view should include a link to the MovieRating/Index page
         [HttpGet]
