@@ -33,20 +33,12 @@ namespace CoderGirl_MVCMovies.Data
         string GetMovieNameById(int id);
 
         /// <summary>
-        /// Given a movie name, returns a list of all ratings associated with the movie name.
+        /// Given a movie name, returns the average rating of of the movie.
         /// If there are no ratings for the movie, returns an empty list.
         /// </summary>
         /// <param name="movieName"></param>
         /// <returns></returns>
-        List<string> GetRatingsByMovieName(string movieName);
-
-        /// <summary>
-        /// Given a rating, returns a list of all movie names with the given rating.
-        /// If there are no movies with the given rating, returns an empty list.
-        /// </summary>
-        /// <param name="rating"></param>
-        /// <returns></returns>
-        List<string> GetMovieNamesByRating(string rating);
+        List<string> GetAverageRatingByMovieName(string movieName);
 
         /// <summary>
         /// Returns a list of all the ids of saved movie ratings
