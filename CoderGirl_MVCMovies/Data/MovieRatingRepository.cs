@@ -29,7 +29,11 @@ namespace CoderGirl_MVCMovies.Data
 
         public int SaveRating(string movieName, int rating)
         {
-            
+            Movie movie = new Movie();
+            movie.Name = movieName; 
         }
+
+        public static List<Movie> Movies = new List<Movie>();
+            
     }
 }
