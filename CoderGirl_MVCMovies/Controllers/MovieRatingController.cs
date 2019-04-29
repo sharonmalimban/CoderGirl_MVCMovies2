@@ -44,6 +44,7 @@ namespace CoderGirl_MVCMovies.Controllers
         public IActionResult Index()
         {
             PopulateMovieList();
+            ViewBag.Movies = movies;
             return View();
         }
 
