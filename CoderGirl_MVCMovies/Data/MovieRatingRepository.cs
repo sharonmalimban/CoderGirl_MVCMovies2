@@ -24,8 +24,8 @@ namespace CoderGirl_MVCMovies.Data
 
         public int GetRatingById(int id)
         {
-
-            throw new NotImplementedException();
+            return Movies[id - 1].Rating;
+            
         }
 
         public int SaveRating(string movieName, int rating)
@@ -40,6 +40,7 @@ namespace CoderGirl_MVCMovies.Data
             movie.Name = movieName;
             movie.Rating = rating;
             movie.Id = Movies.Count + 1;
+            Movies.Add(movie);
             return movie.Id;
         }
 
