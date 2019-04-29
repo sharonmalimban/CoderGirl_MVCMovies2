@@ -19,7 +19,7 @@ namespace CoderGirl_MVCMovies.Data
 
         /// <summary>
         /// Given an id, will return the associated rating 
-        /// If the id does not exist, returns null
+        /// If the id does not exist, returns 0
         /// </summary>
         /// <param name=""></param>
         /// <returns></returns>
