@@ -14,18 +14,21 @@ namespace CoderGirl_MVCMovies.Data
 
         public List<int> GetIds()
         {
+            /// Returns a list of all the ids of saved movie ratings
+            Movies.W()
             throw new NotImplementedException();
         }
 
         public string GetMovieNameById(int id)
         {
-            throw new NotImplementedException();
+            return Movies[id - 1].Name;
+            
         }
 
         public int GetRatingById(int id)
         {
-
-            throw new NotImplementedException();
+            return Movies[id - 1].Rating;
+            
         }
 
         public int SaveRating(string movieName, int rating)
@@ -40,6 +43,7 @@ namespace CoderGirl_MVCMovies.Data
             movie.Name = movieName;
             movie.Rating = rating;
             movie.Id = Movies.Count + 1;
+            Movies.Add(movie);
             return movie.Id;
         }
 
