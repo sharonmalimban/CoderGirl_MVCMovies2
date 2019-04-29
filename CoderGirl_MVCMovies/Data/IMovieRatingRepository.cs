@@ -39,7 +39,7 @@ namespace CoderGirl_MVCMovies.Data
         /// </summary>
         /// <param name="movieName"></param>
         /// <returns></returns>
-        decimal GetAverageRatingByMovieName(string movieName);
+        double GetAverageRatingByMovieName(string movieName);
 
         /// <summary>
         /// Returns a list of all the ids of saved movie ratings
