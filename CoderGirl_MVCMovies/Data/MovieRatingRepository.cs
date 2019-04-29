@@ -29,8 +29,16 @@ namespace CoderGirl_MVCMovies.Data
 
         public int SaveRating(string movieName, int rating)
         {
+            if(movieName)
+
             Movie movie = new Movie();
-            movie.Name = movieName; 
+            movie.Name = movieName;
+            movie.Rating.Add(rating);
+            movie.Id = Movies.Count + 1;
+
+            
+
+            
         }
 
         public static List<Movie> Movies = new List<Movie>();
