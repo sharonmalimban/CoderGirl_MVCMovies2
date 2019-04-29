@@ -24,21 +24,23 @@ namespace CoderGirl_MVCMovies.Data
 
         public int GetRatingById(int id)
         {
+
             throw new NotImplementedException();
         }
 
         public int SaveRating(string movieName, int rating)
         {
-            if(movieName)
-
+            // Given a movieName and rating, saves the rating and returns a unique id > 0.
+            // If the movie name and/or rating are null or empty, nothing should be saved and it should return 0
+            if (String.IsNullOrEmpty(movieName) || rating == 0)
+            {
+                return 0;
+            }
             Movie movie = new Movie();
             movie.Name = movieName;
-            movie.Rating.Add(rating);
+            movie.Rating = rating;
             movie.Id = Movies.Count + 1;
-
-            
-
-            
+            return movie.Id;
         }
 
         public static List<Movie> Movies = new List<Movie>();
