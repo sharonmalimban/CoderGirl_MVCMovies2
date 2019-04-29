@@ -7,16 +7,14 @@ namespace CoderGirl_MVCMovies.Data
 {
     public class MovieRatingRepository : IMovieRatingRepository
     {
-        public decimal GetAverageRatingByMovieName(string movieName)
+        public double GetAverageRatingByMovieName(string movieName)
         {
-            throw new NotImplementedException();
+            return Movies.Where(m => m.Name == movieName).Average(m => m.Rating);
         }
 
         public List<int> GetIds()
         {
-            /// Returns a list of all the ids of saved movie ratings
-            Movies.W()
-            throw new NotImplementedException();
+            return Movies.Select(m => m.Id).ToList();
         }
 
         public string GetMovieNameById(int id)
