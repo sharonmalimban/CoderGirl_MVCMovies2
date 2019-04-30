@@ -69,9 +69,9 @@ namespace CoderGirl_MVCMovies.Controllers
         [HttpPost]
         public IActionResult Create(string movieName, string rating)
         {
-            repository.SaveRating(movieName, int.Parse(rating));
+            int id = repository.SaveRating(movieName, int.Parse(rating));
 
-            return RedirectToAction(actionName: nameof(Details), routeValues: new { movieName, rating });
+            return RedirectToAction(actionName: nameof(Details), routeValues: new { id });
         }
 
         // TODO: The Details method should take an int parameter which is the id of the movie/rating to display.
