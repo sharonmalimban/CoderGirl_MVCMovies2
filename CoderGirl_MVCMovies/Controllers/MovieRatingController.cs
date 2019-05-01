@@ -11,6 +11,7 @@ namespace CoderGirl_MVCMovies.Controllers
     {
         private IMovieRatingRepository repository = RepositoryFactory.GetMovieRatingRepository();
         public static List<Movie> movies = new List<Movie>();
+        //public static Dictionary<Movie, double> movieAverages = new Dictionary<Movie, double>();
 
         private string htmlForm = @"
             <form method='post'>
