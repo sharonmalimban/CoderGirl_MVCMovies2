@@ -28,13 +28,6 @@ namespace CoderGirl_MVCMovies.Controllers
 
         private void PopulateMovieList()
         {
-            //repository.SaveRating("The Matrix", 5);
-            //repository.SaveRating("The Matrix", 3);
-            //repository.SaveRating("The Matrix Reloaded", 2);
-            //repository.SaveRating("The Matrix Reloaded", 3);
-            //repository.SaveRating("The Matrix The really bad one", 2);
-            //repository.SaveRating("The Matrix The really bad one", 1);
-
             foreach (int id in repository.GetIds())
             {
                 Movie mov = new Movie();
@@ -45,9 +38,6 @@ namespace CoderGirl_MVCMovies.Controllers
             }
         }
 
-        /// TODO: Create a view Index. This view should list a table of all saved movie names with associated average rating
-        /// TODO: Be sure to include headers for Movie and Rating
-        /// TODO: Each tr with a movie rating should have an id attribute equal to the id of the movie rating
         [HttpGet]
         public IActionResult Index()
         {
@@ -65,15 +55,14 @@ namespace CoderGirl_MVCMovies.Controllers
             }
             ViewBag.Movies = movieAverages;
             
-            return View();
+            return View("Index");
         }
-        
-        
+                
         [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Movies = movies;
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
@@ -89,7 +78,7 @@ namespace CoderGirl_MVCMovies.Controllers
         {
             ViewBag.movieName = movieName;
             ViewBag.movieRating = rating;
-            return View();
+            return View("Details");
         }
     }
 }
