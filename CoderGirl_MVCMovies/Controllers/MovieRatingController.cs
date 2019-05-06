@@ -48,6 +48,7 @@ namespace CoderGirl_MVCMovies.Controllers
         /// TODO: Create a view Index. This view should list a table of all saved movie names with associated average rating
         /// TODO: Be sure to include headers for Movie and Rating
         /// TODO: Each tr with a movie rating should have an id attribute equal to the id of the movie rating
+        [HttpGet]
         public IActionResult Index()
         {
             PopulateMovieList();
@@ -64,7 +65,7 @@ namespace CoderGirl_MVCMovies.Controllers
             }
             ViewBag.Movies = movieAverages;
             
-            return View("Index");
+            return View();
         }
         
         
@@ -72,7 +73,7 @@ namespace CoderGirl_MVCMovies.Controllers
         public IActionResult Create()
         {
             ViewBag.Movies = movies;
-            return View("Create");
+            return View();
         }
 
         [HttpPost]
@@ -88,7 +89,7 @@ namespace CoderGirl_MVCMovies.Controllers
         {
             ViewBag.movieName = movieName;
             ViewBag.movieRating = rating;
-            return View("Details");
+            return View();
         }
     }
 }
